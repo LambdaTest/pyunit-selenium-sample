@@ -10,7 +10,7 @@ access_key = os.environ.get("LT_ACCESS_KEY")
 
 def get_browser(caps):
 	return webdriver.Remote(
-            command_executor="http://{}:{}@hub.lambdatest.com:80/wd/hub".format(username, access_key),
+            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
             desired_capabilities=caps
         )
 
