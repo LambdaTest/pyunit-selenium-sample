@@ -20,7 +20,7 @@ class FirstSampleTest(unittest.TestCase):
             "network":'true'   # Enable or disable network logs
         }
         self.driver = webdriver.Remote(
-           command_executor="http://{}:{}@hub.lambdatest.com:80/wd/hub".format(username, access_key),
+           command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
            desired_capabilities= desired_caps)
 
 
