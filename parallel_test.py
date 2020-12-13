@@ -16,8 +16,8 @@ def get_browser(caps):
 
 # You can configure your test capabilities here 
 browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "86.0"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "82.0"}
+    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest"},
+    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "latest"}
 ]
 browsers_waiting = []
 
