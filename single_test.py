@@ -15,9 +15,7 @@ class FirstSampleTest(unittest.TestCase):
             "name": 'Py-unittest', # Change your test name here
             "platform": 'OS X El Capitan', # Change your OS version here
             "browserName": 'chrome', # Change your browser here
-            "version": '81.0', # Change your browser version here
-            "console": 'true', # Enable or disable console logs
-            "network":'true'   # Enable or disable network logs
+            "version": 'latest' # Change your browser version here
         }
         self.driver = webdriver.Remote(
            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
