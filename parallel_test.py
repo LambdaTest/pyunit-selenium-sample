@@ -20,6 +20,7 @@ def get_browser(caps):
 
 # You can configure your test capabilities here 
 browsers = [capabilites["parallel_test_1"], capabilites["parallel_test_2"]]
+
 browsers_waiting = []
 
 # Running the test cases
