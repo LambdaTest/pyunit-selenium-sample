@@ -2,23 +2,24 @@ import time
 import os
 from threading import Thread
 from selenium import webdriver
+import json
 
 
 username = os.environ.get("LT_USERNAME")
 access_key = os.environ.get("LT_ACCESS_KEY")
 
+config = open('./config.json','r')
+capabilites = json.load(config)
+
 
 def get_browser(caps):
 	return webdriver.Remote(
-            command_executor="http://{}:{}@hub.lambdatest.com:80/wd/hub".format(username, access_key),
+            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
             desired_capabilities=caps
         )
 
 # You can configure your test capabilities here 
-browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "86.0"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "82.0"}
-]
+browsers = [capabilites["parallel_test_1"], capabilites["parallel_test_2"]]
 browsers_waiting = []
 
 # Running the test cases
