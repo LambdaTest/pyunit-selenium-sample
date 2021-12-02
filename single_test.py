@@ -2,21 +2,24 @@ import os
 import unittest
 import sys
 from selenium import webdriver
-import json
 
 username = os.environ.get("LT_USERNAME")
 access_key = os.environ.get("LT_ACCESS_KEY")
-
-config = open('./config.json','r')
-capabilites = json.load(config)
 
 class FirstSampleTest(unittest.TestCase):
     # Generate capabilites from here: https://www.lambdatest.com/capabilities-generator/
     # setUp runs before each test case and 
     def setUp(self):
+        desired_caps = {
+            "build": 'PyunitTest sample build', # Change your build name here
+            "name": 'Py-unittest', # Change your test name here
+            "platform": 'OS X El Capitan', # Change your OS version here
+            "browserName": 'chrome', # Change your browser here
+            "version": 'latest' # Change your browser version here
+        }
         self.driver = webdriver.Remote(
            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
-           desired_capabilities= capabilites["single_test"])
+           desired_capabilities= desired_caps)
 
 
 # tearDown runs after each test case
