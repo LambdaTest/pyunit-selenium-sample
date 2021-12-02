@@ -2,10 +2,14 @@ import time
 import os
 from threading import Thread
 from selenium import webdriver
+import json
 
 
 username = os.environ.get("LT_USERNAME")
 access_key = os.environ.get("LT_ACCESS_KEY")
+
+config = open('./config.json','r')
+capabilites = json.load(config)
 
 
 def get_browser(caps):
@@ -15,10 +19,8 @@ def get_browser(caps):
         )
 
 # You can configure your test capabilities here 
-browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "latest"}
-]
+browsers = [capabilites["parallel_test_1"], capabilites["parallel_test_2"]]
+
 browsers_waiting = []
 
 # Running the test cases

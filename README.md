@@ -1,5 +1,6 @@
-## Welcome to ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg) - Python-UnitTest-Selenium Sample
+## Welcome to ![LambdaTest Logo](https://www.lambdatest.com/resources/images/logos/logo.svg) - Python-UnitTest-Selenium Sample
 --- 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/LambdaTest/pyunit-selenium-sample)
 
 ### Step 1 : Environment Setup
 
