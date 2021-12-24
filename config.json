@@ -4,7 +4,8 @@
         "name": "Test-Name",
         "platform": "Windows 10",
         "browserName": "chrome",
-        "version": "latest"
+        "version": "latest",
+        "visual": "true"
     },
     "parallel_test_1": {
         "build": "Demo Build",
