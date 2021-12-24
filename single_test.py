@@ -7,6 +7,7 @@ import json
 username = os.environ.get("LT_USERNAME")
 access_key = os.environ.get("LT_ACCESS_KEY")
 
+# Check Config.json for capabilities 
 config = open('./config.json','r')
 capabilites = json.load(config)
 
