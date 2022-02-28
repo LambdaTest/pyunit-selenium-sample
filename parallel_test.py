@@ -16,8 +16,8 @@ def get_browser(caps):
 
 # You can configure your test capabilities here 
 browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "latest"}
+    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest", "selenium_version": "4.1.0"},
+    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "Firefox", "version": "latest", "selenium_version": "4.1.0"}
 ]
 browsers_waiting = []
 
@@ -25,6 +25,7 @@ browsers_waiting = []
 def get_browser_and_wait(browser_data):
 	print ("starting %s" % browser_data["name"])
 	browser = get_browser(browser_data)
+	browser.set_window_size(1600, 1200)
 	browser.get("https://lambdatest.com")
 	browsers_waiting.append({"data": browser_data, "driver": browser})
 	print ("%s ready" % browser_data["name"])
