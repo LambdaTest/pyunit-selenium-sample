@@ -31,7 +31,7 @@ Now, can setup the capabilites of the test in the `single_test.py` file at:
 ln 13: desired_caps = {
 ln 14:           "build": 'PyunitTest sample build',
 ln 15:            "name": 'Py-unittest',
-ln 16:           "platform": 'OS X El Capitan',
+ln 16:           "platform": 'Windows 10',
 ln 17:            "browserName": 'chrome',
 ln 18:           "version": '81.0',
 ln 19:           "console": 'true',

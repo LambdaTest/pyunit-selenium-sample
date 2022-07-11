@@ -13,7 +13,7 @@ class FirstSampleTest(unittest.TestCase):
         desired_caps = {
             "build": 'PyunitTest sample build', # Change your build name here
             "name": 'Py-unittest', # Change your test name here
-            "platform": 'OS X El Capitan', # Change your OS version here
+            "platform": 'Windows 10', # Change your OS version here
             "browserName": 'chrome', # Change your browser here
             "version": 'latest' # Change your browser version here
         }
