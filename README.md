@@ -33,7 +33,7 @@ ln 14:           "build": 'PyunitTest sample build',
 ln 15:            "name": 'Py-unittest',
 ln 16:           "platform": 'Windows 10',
 ln 17:            "browserName": 'chrome',
-ln 18:           "version": '81.0',
+ln 18:           "version": 'latest',
 ln 19:           "console": 'true',
 ln 20:           "network":'true'
 ln 21:        }
@@ -44,8 +44,8 @@ You can setup the capabilites of your test in the `parallel_test.py` file at:
 
 ```
 browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "86.0"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "edge", "version": "82.0"}
+    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest"},
+    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "edge", "version": "latest"}
 ]
 ```
 
