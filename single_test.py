@@ -6,23 +6,23 @@ from selenium import webdriver
 username = os.environ.get("LT_USERNAME")
 access_key = os.environ.get("LT_ACCESS_KEY")
 
+
 class FirstSampleTest(unittest.TestCase):
     # Generate capabilites from here: https://www.lambdatest.com/capabilities-generator/
     # setUp runs before each test case and 
     def setUp(self):
         desired_caps = {
-            "build": 'PyunitTest sample build', # Change your build name here
-            "name": 'Py-unittest', # Change your test name here
-            "platform": 'OS X El Capitan', # Change your OS version here
-            "browserName": 'chrome', # Change your browser here
-            "version": 'latest' # Change your browser version here
+            "build": 'PyunitTest sample build',  # Change your build name here
+            "name": 'Py-unittest',  # Change your test name here
+            "platform": 'Windows 10',  # Change your OS version here
+            "browserName": 'chrome',  # Change your browser here
+            "version": 'latest'  # Change your browser version here
         }
         self.driver = webdriver.Remote(
-           command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
-           desired_capabilities= desired_caps)
+            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
+            desired_capabilities=desired_caps)
 
-
-# tearDown runs after each test case
+    # tearDown runs after each test case
     def tearDown(self):
         self.driver.quit()
 
@@ -52,7 +52,8 @@ class FirstSampleTest(unittest.TestCase):
 
         # Verified added item
         added_item = driver.find_element_by_xpath("//span[@class='done-false']").text
-        print (added_item)
+        print(added_item)
+
 
 if __name__ == "__main__":
     unittest.main()
