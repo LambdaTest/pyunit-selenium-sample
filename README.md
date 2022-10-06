@@ -1,4 +1,4 @@
-## Welcome to ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg) - Python-UnitTest-Selenium Sample
+## Welcome to ![LambdaTest Logo](https://www.lambdatest.com/resources/images/logos/logo.svg) - Python-UnitTest-Selenium Sample
 --- 
 
 ### Step 1 : Environment Setup
