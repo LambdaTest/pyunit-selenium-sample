@@ -1,71 +1,134 @@
-## Welcome to ![LambdaTest Logo](https://www.lambdatest.com/resources/images/logos/logo.svg) - Python-UnitTest-Selenium Sample
---- 
+# Run PyUnit Selenium Tests on TestMu AI (Formerly LambdaTest)
 
-### Step 1 : Environment Setup
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://pypi.org/project/selenium/"><img src="https://img.shields.io/pypi/v/selenium.svg?style=for-the-badge&labelColor=000000" alt="Selenium version"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
 
-#### Lambdatest Credentials
+## Getting Started
 
-Set LambdaTest username and access key in environment variables in the file `lamdatest.env`
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-Replace the values with your credentials, you can find them at (https://www.lambdatest.com/capabilities-generator/)
+With TestMu AI (Formerly LambdaTest), you can run Python UnitTest (PyUnit) Selenium tests across real browsers and operating systems. This sample shows how to configure PyUnit with Selenium to run single and parallel browser automation tests on the TestMu AI cloud.
 
-```
-ln 1: export LT_USERNAME="Your Username"
-ln 2: export LT_ACCESS_KEY="Your Access key"
-```
-![Lamdatest Credentials](/assets/screenshot.png)
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
-After your save your credentials at `lambdatest.env` please run the command: 
+### Prerequisites
 
-```
-$ source lambdatest.env
-```
+- Python 3.8+
+- pip
+- A TestMu AI (Formerly LambdaTest) account with your username and access key
 
-### Step 2: Setting up your test capabilites
+### Setup
 
-You can genegate the test capabilites at (https://www.lambdatest.com/capabilities-generator/) and choose **Python** as the language. 
+Clone and install dependencies:
 
-Now, can setup the capabilites of the test in the `single_test.py` file at: 
-
-```
-ln 13: desired_caps = {
-ln 14:           "build": 'PyunitTest sample build',
-ln 15:            "name": 'Py-unittest',
-ln 16:           "platform": 'Windows 10',
-ln 17:            "browserName": 'chrome',
-ln 18:           "version": 'latest',
-ln 19:           "console": 'true',
-ln 20:           "network":'true'
-ln 21:        }
-
+```bash
+git clone https://github.com/LambdaTest/pyunit-selenium-sample && cd pyunit-selenium-sample
+pip install -r requirements.txt
 ```
 
-You can setup the capabilites of your test in the `parallel_test.py` file at: 
+Set your credentials as environment variables.
 
-```
-browsers = [
-    {"build": 'PyunitTest sample build',"name": "Test 1", "platform": "Windows 10","browserName": "Chrome", "version": "latest"},
-    {"build": 'PyunitTest sample build',"name": "Test 2", "platform": "Windows 10","browserName": "edge", "version": "latest"}
-]
-```
+**macOS / Linux:**
 
-### Step 3: Running Tests
-To start a single test Run following command: <br/><br/>
-
-```
-$ python single_test.py 
+```bash
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
 ```
 
-To start a parallel test Run the following command: <br/><br/>
+**Windows:**
+
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
 ```
-$ python parallel_test.py
+
+### Run tests
+
+To run a single test:
+
+```bash
+python single_test.py
 ```
 
-## About LambdaTest
+To run tests in parallel:
 
-[LambdaTest](https://www.lambdatest.com/) is a cloud based selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
+```bash
+python parallel_test.py
+```
 
-### For further References
+View results on your TestMu AI dashboard.
 
-##### [SeleniumHQ Documentation](http://www.seleniumhq.org/docs/)
-##### [UnitTest Documentation](https://docs.python.org/2/library/unittest.html)
+### Local testing with TestMu AI Tunnel
+
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
+
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+
+Add the following to your capabilities:
+
+```js
+tunnel: true,
+```
+
+### Avoid timeouts with `pseudoActivityInterval`
+
+TestMu AI aborts test sessions if the machine is held idle for 90+ seconds. To keep sessions alive, send a heartbeat:
+
+```js
+customLaunchers: {
+  chrome: {
+    pseudoActivityInterval: 5000 // 5s heartbeat
+  }
+}
+```
+
+The default is `0` (disabled). Set any value above `0` to enable.
+
+## Contributions
+
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Python version, OS, and pip version.
+
+## TestMu AI (Formerly LambdaTest) Community
+
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
+
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
+
+## Learning Resources by TestMu AI (Formerly LambdaTest)
+
+Learn modern testing through tutorials, guides, videos, and weekly updates:
+
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
+
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
+
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
+
+Find the new home for [LambdaTest](https://www.testmuai.com).
+
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
+
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
