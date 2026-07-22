@@ -30,14 +30,14 @@ class FirstSampleTest(unittest.TestCase):
 
     def test_unit_user_should_able_to_add_item(self):
         driver = self.driver
-        driver.get("https://lambdatest.github.io/sample-todo-app/")
+        driver.get("https://www.testmuai.com/selenium-playground/todo-app/")
 
         driver.find_element("name", "li1").click()
         driver.find_element("name", "li2").click()
         driver.find_element("id", "sampletodotext").send_keys("Yey, Let's add it to list")
         driver.find_element("id", "addbutton").click()
 
-        added_item = driver.find_element("xpath", "(//span[contains(@class,'text-base')])[6]").text
+        added_item = driver.find_element("xpath", "//input[@name='li6']/following-sibling::span").text
         print("Added item:", added_item)
         self.assertIn("Yey", added_item)
 
